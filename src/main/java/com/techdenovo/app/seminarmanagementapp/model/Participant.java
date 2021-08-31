@@ -17,6 +17,6 @@ public class Participant {
     private String email;
     private String qualification;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "instituteName", referencedColumnName = "name", nullable = false)
+    @JoinColumn(name = "institute_id", referencedColumnName = "id", nullable = false)
     private EducationalInstitute educationalInstitute;
 }
