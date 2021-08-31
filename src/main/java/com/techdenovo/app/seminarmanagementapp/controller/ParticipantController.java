@@ -1,11 +1,9 @@
 package com.techdenovo.app.seminarmanagementapp.controller;
-
 import com.techdenovo.app.seminarmanagementapp.model.Participant;
 import com.techdenovo.app.seminarmanagementapp.service.ParticipantService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -17,10 +15,11 @@ public class ParticipantController {
     @PostMapping("/add")
     public Participant addParticipant(@RequestBody Participant participant) {
         if (participant != null)
+//            participant.getEducationalInstitute();
             participantService.saveParticipant(participant);
         return participant;
     }
-    @GetMapping("/participant/{id}")
+    @GetMapping("/{id}")
     public Participant showUpdateForm(@PathVariable("id") long id, Model model) {
         Participant participant = participantService.getParticipant(id);
         model.addAttribute("participant", participant);
